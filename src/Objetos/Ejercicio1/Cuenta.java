@@ -7,12 +7,12 @@ import java.util.Random;
  */
 public class Cuenta {
     private Integer nroCuenta;
-    private Integer saldo;
+    private Double saldo;
     private Persona titular;
 
     public Cuenta(Persona unaPersona) {
         titular = unaPersona;
-        saldo = 0;
+        saldo = 0.0;
         Random rand = new Random();
         nroCuenta = rand.nextInt(1000);
     }
@@ -21,7 +21,7 @@ public class Cuenta {
         return nroCuenta;
     }
 
-    public Integer getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
@@ -29,13 +29,13 @@ public class Cuenta {
         return titular;
     }
 
-    public void deposito(Integer cantidad) {
+    public void deposito(Double cantidad) {
         saldo += cantidad;
         System.out.println("Se depositaron " + cantidad + " pesos.");
         System.out.println("El saldo actual es de " + this.getSaldo() + " pesos.");
     }
 
-    public void extraccion(Integer cantidad) {
+    public void extraccion(Double cantidad) {
         if (cantidad <= saldo) {
             saldo -= cantidad;
             System.out.println("Se extrajeron " + cantidad + " pesos.");

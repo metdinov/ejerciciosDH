@@ -12,10 +12,10 @@ public class Main {
 
         Cuenta cuentaJuan = new Cuenta(juan);
         Cuenta cuentaEmilia = new Cuenta(emilia);
-        cuentaJuan.deposito(1000);
-        cuentaEmilia.deposito(300);
-        cuentaJuan.extraccion(900);
-        cuentaEmilia.extraccion(600);
+        cuentaJuan.deposito(1000.0);
+        cuentaEmilia.deposito(300.0);
+        cuentaJuan.extraccion(900.0);
+        cuentaEmilia.extraccion(600.0);
     }
 }
 
