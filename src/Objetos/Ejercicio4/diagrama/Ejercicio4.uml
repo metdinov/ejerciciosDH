@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Objetos.Ejercicio4</OriginalElement>
+  <nodes>
+    <node x="197.0" y="227.0">Objetos.Ejercicio4.Venta</node>
+    <node x="0.0" y="24.0">Objetos.Ejercicio4.Cliente</node>
+    <node x="336.0" y="0.0">Objetos.Ejercicio4.Vehiculo</node>
+    <node x="182.0" y="406.0">Objetos.Ejercicio4.Concesionaria</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Objetos.Ejercicio4.Venta" target="Objetos.Ejercicio4.Vehiculo">
+      <point x="85.25" y="-64.5" />
+      <point x="452.75" y="202.0" />
+      <point x="577.0" y="202.0" />
+      <point x="0.0" y="88.5" />
+    </edge>
+    <edge source="Objetos.Ejercicio4.Venta" target="Objetos.Ejercicio4.Cliente">
+      <point x="-85.25" y="-64.5" />
+      <point x="282.25" y="202.0" />
+      <point x="158.0" y="202.0" />
+      <point x="0.0" y="64.5" />
+    </edge>
+    <edge source="Objetos.Ejercicio4.Concesionaria" target="Objetos.Ejercicio4.Venta">
+      <point x="123.66666666666667" y="-28.0" />
+      <point x="491.1666666666667" y="381.0" />
+      <point x="481.1666666666667" y="381.0" />
+      <point x="113.66666666666669" y="64.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="409.0" y="231.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
