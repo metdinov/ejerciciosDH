@@ -7,7 +7,7 @@ import Herencia.Banco.Cliente.Cliente;
  * Created by digitalhouse on 24/08/16.
  */
 public class CuentaCorriente extends Cuenta{
-    private final Double descubierto;
+    protected final Double descubierto;
 
     public CuentaCorriente(Cliente cliente, Double saldo, Integer numeroDeCuenta, Double unDescubierto) {
         super(cliente, saldo, numeroDeCuenta);
