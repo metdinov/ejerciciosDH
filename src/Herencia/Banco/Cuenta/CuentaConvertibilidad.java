@@ -6,31 +6,39 @@ import Herencia.Banco.Cliente.Cliente;
  * Created by digitalhouse on 24/08/16.
  */
 public class CuentaConvertibilidad extends CuentaCorriente {
-    private Double tasaDeConversion;
+    private Double saldoDolares = 0.0;
 
-    public CuentaConvertibilidad(Cliente cliente, Double saldo, Integer numeroDeCuenta, Double unDescubierto, Double unaTasaDeConversion) {
+    public CuentaConvertibilidad(Cliente cliente, Double saldo, Integer numeroDeCuenta,
+                                 Double unDescubierto) {
         super(cliente, saldo, numeroDeCuenta, unDescubierto);
-        tasaDeConversion = unaTasaDeConversion;
     }
 
     public void depositarDolares(Double montoDolares) {
-        super.depositarEfectivo(montoDolares * tasaDeConversion);
+        saldoDolares += montoDolares;
     }
 
     public void extraerDolares(Double montoDolares) {
-        Double totalEnPesos = montoDolares * tasaDeConversion;
-        if (totalEnPesos > saldo) {
-            System.out.println("No se pudo realizar la operacion. La extraccion maxima es de US$" + saldo / tasaDeConversion);
+        saldoDolares -= montoDolares;
+    }
+
+    // Asumo unaTasa de Pesos a Dolares
+    // => montoPesos * unaTasa := montoDolares
+    public void convertirPesosADolares(Double monto, Double unaTasa) {
+        if (monto > saldo) {
+            System.out.println("No se pudo realizar la operacion. Su saldo es de $" + saldo);
         } else {
-            super.extraerEfectivo(totalEnPesos);
+            saldoDolares += monto / unaTasa;
+            saldo -= monto;
         }
     }
 
-    public Double convertirPesosADolares(Double monto, Double unaTasa) {
-        return monto * unaTasa;
+    public void convertirDolaresAPesos(Double montoDolares, Double unaTasa) {
+        if (montoDolares > saldoDolares) {
+            System.out.println("No se pudo realizar la operacion. Su saldo es de US$" + saldo);
+        } else {
+            saldo += montoDolares * unaTasa;
+            saldoDolares -= montoDolares;
+        }
     }
 
-    public Double convertirDolaresAPesos(Double monto, Double unaTasa) {
-        return monto / unaTasa;
-    }
 }

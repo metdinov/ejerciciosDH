@@ -22,7 +22,7 @@ public class CajaDeAhorro extends Cuenta {
         if (unMonto <= saldo) {
             super.extraerEfectivo(unMonto);
         } else {
-            System.out.println("No se pudo realizar la operacion. La extraccion maxima es de $" + saldo);
+            System.out.println("No se pudo realizar la operacion. La extraccion maxima es de $ " + saldo);
         }
     }
 }
