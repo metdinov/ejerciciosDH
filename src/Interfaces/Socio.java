@@ -43,4 +43,18 @@ public class Socio {
     public void setID(Integer ID) {
         this.ID = ID;
     }
+
+    public Boolean tieneCupoDisponible() {
+        return (listaEjemplaresRetirados.size() < MAX_RETIROS);
+    }
+
+    public void retirarUnEjemplar(Ejemplar unEjemplar) {
+        unEjemplar.setPrestado(true);
+        listaEjemplaresRetirados.add(unEjemplar);
+    }
+
+    public void devolverUnEjemplar(Ejemplar unEjemplar) {
+        unEjemplar.setPrestado(false);
+        listaEjemplaresRetirados.remove(unEjemplar);
+    }
 }

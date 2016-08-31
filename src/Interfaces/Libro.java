@@ -6,11 +6,9 @@ import java.util.List;
 /**
  * Created by digitalhouse on 29/08/16.
  */
-public class Libro {
+public class Libro extends Publicacion{
     private String titulo;
     private String autor;
-    private Integer ISBN;
-    private List<Ejemplar> listaEjemplares = new ArrayList<>();
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -18,10 +16,6 @@ public class Libro {
 
     public void setAutor(String autor) {
         this.autor = autor;
-    }
-
-    public void setISBN(Integer ISBN) {
-        this.ISBN = ISBN;
     }
 
     public String getTitulo() {
@@ -32,15 +26,32 @@ public class Libro {
         return autor;
     }
 
-    public Integer getISBN() {
-        return ISBN;
+    public void agregarEjemplar(Ejemplar unEjemplar) {
+        this.getListaEjemplares().add(unEjemplar);
     }
 
-    public List<Ejemplar> getListaEjemplares() {
-        return listaEjemplares;
+    public Boolean tieneEjemplaresDisponibles() {
+        for (Ejemplar unEjemplar : this.getListaEjemplares()) {
+            if (!unEjemplar.getPrestado()) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void setListaEjemplares(List<Ejemplar> listaEjemplares) {
-        this.listaEjemplares = listaEjemplares;
+    public Ejemplar prestarEjemplar() {
+        if (tieneEjemplaresDisponibles()) {
+            for (Ejemplar unEjemplar : this.getListaEjemplares()) {
+                if (!unEjemplar.getPrestado()) {
+                    unEjemplar.setPrestado(true);
+                    return unEjemplar;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void reingresarEjemplar(Ejemplar unEjemplar) {
+        unEjemplar.setPrestado(false);
     }
 }
